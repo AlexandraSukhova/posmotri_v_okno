@@ -1,10 +1,4 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
+.html {
   block-size: 100%;
 }
 
@@ -16,37 +10,9 @@ html {
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
+  font-family: 'Fira Sans Condensed', Arial, Helvetica, sans-serif;
   font-size: 18px;
   background-color: #1b1919;
-}
-
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol,
-li,
-blockquote,
-fieldset {
-  margin: 0;
-  padding: 0;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-}
-
-input {
-  appearance: none;
 }
 
 .content {
@@ -136,6 +102,8 @@ input {
   background: transparent;
   border-left: none;
   border-right: none;
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
   text-align: left;
@@ -154,7 +122,6 @@ input {
   outline: none;
 }
 
-
 .search-form__textfield:focus {
   outline: none;
 }
@@ -166,7 +133,7 @@ input {
 
 .search-form__label:hover {
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
   text-decoration-thickness: 1px;
 }
 
@@ -189,7 +156,7 @@ input {
   border: 1px solid #fff;
 }
 
-input[type="checkbox"]:active + .search-form__pseudo-checkbox::after {  /* active указан в figma, возмножно, лучше подходит :checked */
+.search-form__checkbox[type="checkbox"]:checked + .search-form__pseudo-checkbox::after {
   content: "";
   display: block;
   width: 100%;
@@ -228,7 +195,7 @@ input[type="checkbox"]:active + .search-form__pseudo-checkbox::after {  /* activ
 
 .button:focus-visible {
   outline: 1px solid #fff;
-  outline-offset: 2px;
+  outline-offset: 1px;
 }
 
 .search-form__submit-button {
@@ -259,11 +226,11 @@ input[type="checkbox"]:active + .search-form__pseudo-checkbox::after {  /* activ
 
 .content__list {
   position: relative;;
-  height: 298px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  row-gap: 30px;
+  row-gap: 25px;
   overflow: auto;
   scroll-behavior: smooth;
 }
@@ -308,7 +275,6 @@ input[type="checkbox"]:active + .search-form__pseudo-checkbox::after {  /* activ
 }
 
 .content__video-card-description-container {
-  width: 100%;
   min-width: 200px;
   display: flex;
   flex-direction: column;
@@ -316,7 +282,9 @@ input[type="checkbox"]:active + .search-form__pseudo-checkbox::after {  /* activ
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Oswald, Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -331,15 +299,19 @@ input[type="checkbox"]:active + .search-form__pseudo-checkbox::after {  /* activ
 }
 
 .content__video-card-thumbnail {
-  min-width: 194px;
-  height: 103px;
+  inline-size: 194px;
+  block-size: 103px;
   object-fit: fill;
   object-position: center;
 }
 
 .more-button {
-  width: 100%;
-  justify-self: flex-end;
+  width: 99%;
+  margin-bottom: 2px;
+}
+
+.content__list-item-button {
+  text-align: center;
 }
 
 .visually-hidden {
